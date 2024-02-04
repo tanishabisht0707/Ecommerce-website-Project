@@ -11,6 +11,7 @@ let cartbox = document.querySelector(".cart-page")
 let searchbox = document.querySelector(".searchbox")
 let serchbtn = document.getElementById("search-btn")
 let checkout = document.querySelector(".check")
+let singProd = document.querySelector(".right-container")
 
 
 
@@ -19,6 +20,34 @@ let remitem = document.querySelector(".remove")
 let products = document.querySelectorAll(".item-list")
 let countitem = document.getElementById("countitm")
 let count = 0
+
+// --- show each projects
+
+ products.forEach(prod => {
+ prod.addEventListener('click',()=>{
+  let prodName = prod.querySelector(".name").innerHTML;
+  let prodPrice = prod.querySelector(".price").innerHTML;
+  let prodImg = prod.querySelector("img").src;
+
+  let data = {
+    name : prodName,
+    price : prodPrice,
+    prodImg : prodImg
+  }
+
+   getData(data)
+
+ })
+ })
+   
+ const prodDetail = []
+
+  const getData = (data) => {
+   prodDetail.push(data)
+  }
+
+  let h2 = singProd.firstElementChild;
+  h2 = prodDetail.price
  
 
 let productsincart = []
@@ -148,12 +177,12 @@ cartbtn.addEventListener("click", () => {
   searchbox.classList.remove("show")
 })
 
-singin.addEventListener("click", () => {
-  signinbox.classList.toggle("active-box")
-})
+// singin.addEventListener("click", () => {
+//   signinbox.classList.toggle("active-box")
+// })
 
-submitbtn.addEventListener("click", () => {
-  signinbox.classList.add("remove-box")
+// submitbtn.addEventListener("click", () => {
+//   signinbox.classList.add("remove-box")
 
-})
+// })
 // ============================================================================
